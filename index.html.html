@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPSTAN: The Sales Titan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define custom CSS variables for colors for consistency and easy updates */
+        :root {
+            --color-primary-dark: #8B0000; /* Dark Red - Main brand color */
+            --color-primary-light: #B22222; /* Firebrick - Lighter red for accents/buttons */
+            --color-accent-gold: #DAA520; /* Goldenrod - Gold accent for branding */
+            --color-text-dark: #4A2C2A; /* Dark reddish-brown - Main body text */
+            --color-background-light: #FFFBF0; /* Very light cream - Main background */
+            --color-border-light: #E0BBE4; /* Lighter border for cards */
+            --color-chart-grid: #F0E6D2; /* Lighter grid lines for charts */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background-light);
+            color: var(--color-text-dark);
+        }
+        .navbar {
+            background-color: var(--color-primary-dark);
+        }
+        .hero-section {
+            background: linear-gradient(to right, var(--color-primary-dark), var(--color-primary-light));
+            color: var(--color-background-light); /* Text color for hero section */
+        }
+        .section-header {
+            color: var(--color-primary-dark);
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid var(--color-border-light);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+            border-radius: 12px; /* Slightly more rounded corners */
+        }
+        .btn-primary {
+            background-color: var(--color-primary-light);
+            color: #ffffff;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: var(--color-primary-dark); /* Darker red on hover */
+            transform: translateY(-2px);
+        }
+        .chart-container {
+            position: relative;
+            height: 300px; /* Adjusted height for charts */
+            width: 100%;
+            margin-bottom: 2rem; /* Added margin for spacing */
+        }
+        /* Custom scrollbar for a more polished look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-background-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-primary-light);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-primary-dark);
+        }
+        /* Custom utility classes for colors */
+        .text-primary-dark { color: var(--color-primary-dark); }
+        .text-primary-light { color: var(--color-primary-light); }
+        .text-accent-gold { color: var(--color-accent-gold); }
+        .text-text-dark { color: var(--color-text-dark); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navbar -->
+    <nav class="navbar p-4 shadow-lg fixed w-full z-10 top-0">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-accent-gold">CAPSTAN</a>
+            <div class="flex items-center space-x-4"> <!-- Adjusted space-x for slightly tighter grouping -->
+                <a href="#objective" class="text-white text-lg font-extrabold px-5 py-3 rounded-full transition duration-300 hover:text-accent-gold hover:bg-primary-light hover:shadow-md hover:border-2 hover:border-accent-gold">Objective</a>
+                <a href="#methodology" class="text-white text-lg font-extrabold px-5 py-3 rounded-full transition duration-300 hover:text-accent-gold hover:bg-primary-light hover:shadow-md hover:border-2 hover:border-accent-gold">Methodology</a>
+                <a href="#findings" class="text-white text-lg font-extrabold px-5 py-3 rounded-full transition duration-300 hover:text-accent-gold hover:bg-primary-light hover:shadow-md hover:border-2 hover:border-accent-gold">Findings</a>
+                <a href="#customer-insights" class="text-white text-lg font-extrabold px-5 py-3 rounded-full transition duration-300 hover:text-accent-gold hover:bg-primary-light hover:shadow-md hover:border-2 hover:border-accent-gold">Customer Insights</a>
+                <a href="#recommendations" class="text-white text-lg font-extrabold px-5 py-3 rounded-full transition duration-300 hover:text-accent-gold hover:bg-primary-light hover:shadow-md hover:border-2 hover:border-accent-gold">Recommendations</a>
+                <a href="#conclusion" class="text-white text-lg font-extrabold px-5 py-3 rounded-full transition duration-300 hover:text-accent-gold hover:bg-primary-light hover:shadow-md hover:border-2 hover:border-accent-gold">Conclusion</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section py-24 px-4 text-center rounded-b-lg mt-16">
+        <div class="container mx-auto">
+            <h1 class="text-6xl font-extrabold mb-4 leading-tight drop-shadow-lg">CAPSTAN: The Sales Titan</h1>
+            <p class="text-2xl mb-8 font-light">Consistent performance, loyal demand, and market dominance.</p>
+            <p class="text-xl font-medium text-accent-gold">Presented by Pall Mall</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto my-12 px-4">
+
+        <!-- The Objective Section -->
+        <section id="objective" class="mb-16">
+            <h2 class="section-header text-5xl font-bold text-center mb-10">The Objective</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-dark">Performance Assessment</h3>
+                    <p class="text-text-dark leading-relaxed">To conduct a thorough assessment of Capstan’s sales performance, with a specific focus on Territory C, identifying key metrics and trends.</p>
+                </div>
+                <div class="card p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-dark">Demand Drivers</h3>
+                    <p class="text-text-dark leading-relaxed">To deeply understand the core factors and consumer preferences that consistently drive the high demand for Capstan in the market.</p>
+                </div>
+                <div class="card p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-dark">Operational Analysis</h3>
+                    <p class="text-text-dark leading-relaxed">To meticulously analyze sales volumes, evaluate restocking trends, and assess the overall efficiency of distributor operations to optimize the supply chain.</p>
+                </div>
+                <div class="card p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-dark">Customer Behavior</h3>
+                    <p class="text-text-dark leading-relaxed">To investigate customer behavior patterns during stockout situations and analyze the common brand substitution choices made by consumers.</p>
+                </div>
+                <div class="card p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-dark">Actionable Insights</h3>
+                    <p class="text-text-dark leading-relaxed">To deliver clear, actionable insights and strategic recommendations aimed at strengthening Capstan’s market position and enhancing trade operations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section id="methodology" class="mb-16">
+            <h2 class="section-header text-5xl font-bold text-center mb-10">Methodology</h2>
+            <div class="card p-10 rounded-lg">
+                <p class="text-lg mb-8 leading-relaxed text-text-dark">
+                    A comprehensive and structured survey was meticulously conducted across 30 diverse retail shops, strategically selected from territories A, B, and C. This sample deliberately included a mix of retail formats, such as traditional pan shops, general stores, and modern marts, to ensure a robust capture of Capstan’s performance across a wide spectrum of customer segments.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-3xl font-semibold mb-4 text-primary-dark">Questionnaire Design</h3>
+                        <ul class="list-disc list-inside text-text-dark space-y-3 pl-4">
+                            <li>Developed a balanced questionnaire combining close-ended questions for quantitative data (e.g., sales volume, restocking frequency, distributor visits, substitute brand behavior).</li>
+                            <li>Incorporated open-ended questions to gather rich qualitative insights (e.g., reasons for Capstan's popularity, specific customer preferences during stockouts).</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-semibold mb-4 text-primary-dark">Sampling Strategy</h3>
+                        <ul class="list-disc list-inside text-text-dark space-y-3 pl-4">
+                            <li>Surveyed a total of 30 retail shops to ensure a representative sample size.</li>
+                            <li>Included a strategic mix of retail formats (pan shops, general stores, marts) to cover varied customer segments.</li>
+                            <li>Covered Territories A, B, and C to provide a comprehensive understanding of market dynamics across different regions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Findings & Analysis Section -->
+        <section id="findings" class="mb-16">
+            <h2 class="section-header text-5xl font-bold text-center mb-10">Findings & Analysis</h2>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="card p-10 rounded-lg">
+                    <h3 class="text-3xl font-semibold mb-6 text-primary-dark">Key Market Insights</h3>
+                    <ul class="list-disc list-inside text-text-dark space-y-4">
+                        <li><strong>Market Leadership:</strong> Capstan consistently emerges as the best-selling brand across all surveyed retail outlets, unequivocally confirming its strong and pervasive market presence.</li>
+                        <li><strong>Unwavering Brand Loyalty:</strong> A significant 75% of surveyed retailers reported that customers specifically request Capstan by name, underscoring exceptionally high brand loyalty and consumer preference.</li>
+                        <li><strong>Robust & Consistent Demand:</strong> More than half of the retail shops reported selling an impressive 20–40+ packs daily, which is a clear indicator of strong and consistent consumer demand for the brand.</li>
+                        <li><strong>Taste & Affordability:</strong> Retailers overwhelmingly credit Capstan’s sustained success to its superior taste profile and highly competitive affordability, making it a preferred choice for consumers.</li>
+                        <li><strong>Rapid Stock Turnover:</strong> The majority of shops restock Capstan every 2–3 days, highlighting a remarkably fast product turnover rate and consistent customer pull from the market.</li>
+                        <li><strong>Retailer Confidence:</strong> Restocking investments typically range from PKR 50,000–400,000/-, which vividly demonstrates the high level of trust and confidence retailers place in the brand's sales potential and profitability.</li>
+                        <li><strong>Efficient Distribution Network:</strong> BAT distributors maintain a frequent visit schedule, typically every 2–3 days in most areas, ensuring a timely and reliable supply chain that minimizes stockouts and maximizes availability.</li>
+                        <li><strong>Primary Alternative:</strong> In instances where Capstan is unavailable, Gold Leaf was consistently identified as the next most preferred alternative, indicating its position as the closest competitor in the market.</li>
+                    </ul>
+                </div>
+                <div class="card p-10 rounded-lg flex flex-col justify-between">
+                    <h3 class="text-3xl font-semibold mb-6 text-primary-dark">Quantitative Data Visualizations</h3>
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="distributorVisitChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="restockFrequencyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Insights Section -->
+        <section id="customer-insights" class="mb-16">
+            <h2 class="section-header text-5xl font-bold text-center mb-10">Customer Insights</h2>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="card p-10 rounded-lg">
+                    <h3 class="text-3xl font-semibold mb-6 text-primary-dark">Why Capstan Sells More</h3>
+                    <div class="chart-container">
+                        <canvas id="whyCapstanSellsChart"></canvas>
+                    </div>
+                </div>
+                <div class="card p-10 rounded-lg">
+                    <h3 class="text-3xl font-semibold mb-6 text-primary-dark">Brand Substitution Patterns</h3>
+                    <div class="chart-container">
+                        <canvas id="brandSubstitutionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section id="recommendations" class="mb-16">
+            <h2 class="section-header text-5xl font-bold text-center mb-10">Recommendations</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-dark">Retailer Relationship Management</h3>
+                    <p class="text-text-dark leading-relaxed">Implement targeted training programs for Distribution Representatives (DRs) to foster stronger, trust-based relationships with retailers. This strategic approach will ensure Capstan receives prominent placement and is actively recommended to walk-in customers, thereby maximizing visibility and sales potential.</p>
+                </div>
+                <div class="card p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-dark">Data-Driven Stock Planning</h3>
+                    <p class="text-text-dark leading-relaxed">Encourage and support retail shops in meticulously tracking Capstan’s daily turnover and precise reorder needs through user-friendly, basic templates. This data-driven methodology will optimize inventory levels, significantly reduce instances of stockouts, and enhance overall supply chain efficiency.</p>
+                </div>
+                <div class="card p-8 rounded-lg">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary-dark">POS Optimization</h3>
+                    <p class="text-text-dark leading-relaxed">Collaborate closely with retailers to strategically position Capstan in highly visible and accessible areas within the point-of-sale (POS) environment. Develop and implement effective shelf placement logic that clearly signals product availability and leverages prime retail space to capture immediate customer attention and drive impulse purchases.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="mb-16">
+            <h2 class="section-header text-5xl font-bold text-center mb-10">Conclusion</h2>
+            <div class="card p-10 rounded-lg">
+                <ul class="list-disc list-inside text-lg text-text-dark space-y-4">
+                    <li><strong>Market Dominance:</strong> Capstan unequivocally leads retail sales, a testament to its strong customer preference and exceptional brand recall within the market.</li>
+                    <li><strong>Consumer Favorite:</strong> Its optimal balance of superior taste and competitive affordability firmly establishes it as a perennial favorite, particularly among price-sensitive consumers.</li>
+                    <li><strong>Robust Demand & Retailer Confidence:</strong> The consistently rapid stock turnover rates vividly underscore both sustained consumer demand and the unwavering confidence retailers place in Capstan's market performance.</li>
+                    <li><strong>Strategic Growth Opportunities:</strong> While the current distribution network demonstrates general effectiveness, identifying and proactively addressing existing gaps in certain geographical areas presents significant and tangible opportunities for further growth and market penetration.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 text-center rounded-t-lg bg-primary-dark text-accent-gold">
+        <div class="container mx-auto">
+            <p>&copy; 2024 Capstan Project. All rights reserved.</p>
+            <!-- Removed the line "Designed for professional presentation." -->
+        </div>
+    </footer>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js Datalabels Plugin CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script>
+        // Reconstructed surveyData to match counts from screenshots and original CSV snippet
+        const surveyData = [
+            // Daily Capstan Pack Sales Distribution (from original CSV snippet, 15 entries)
+            { "How many Capstan packs do you sell in a day (avg)?": "20-40" },
+            { "How many Capstan packs do you sell in a day (avg)?": ">40" },
+            { "How many Capstan packs do you sell in a day (avg)?": "10-20" },
+            { "How many Capstan packs do you sell in a day (avg)?": "10-20" },
+            { "How many Capstan packs do you sell in a day (avg)?": ">40" },
+            { "How many Capstan packs do you sell in a day (avg)?": "20-40" },
+            { "How many Capstan packs do you sell in a day (avg)?": ">40" },
+            { "How many Capstan packs do you sell in a day (avg)?": ">40" },
+            { "How many Capstan packs do you sell in a day (avg)?": ">40" },
+            { "How many Capstan packs do you sell in a day (avg)?": "10-20" },
+            { "How many Capstan packs do you sell in a day (avg)?": ">40" },
+            { "How many Capstan packs do you sell in a day (avg)?": ">40" },
+            { "How many Capstan packs do you sell in a day (avg)?": "<10" },
+            { "How many Capstan packs do you sell in a day (avg)?": "10-20" },
+            { "How many Capstan packs do you sell in a day (avg)?": "20-40" },
+
+            // Why Capstan Sells More (24 responses total from screenshot)
+            { "Why do you think Capstan sells more?": "Taste" }, { "Why do you think Capstan sells more?": "Taste" },
+            { "Why do you think Capstan sells more?": "Taste" }, { "Why do you think Capstan sells more?": "Taste" },
+            { "Why do you think Capstan sells more?": "Taste" }, { "Why do you think Capstan sells more?": "Taste" },
+            { "Why do you think Capstan sells more?": "Taste" }, { "Why do you think Capstan sells more?": "Taste" },
+            { "Why do you think Capstan sells more?": "Taste" }, { "Why do you think Capstan sells more?": "Taste" },
+            { "Why do you think Capstan sells more?": "Taste" }, { "Why do you think Capstan sells more?": "Taste" },
+            { "Why do you think Capstan sells more?": "Taste" }, // 13 for Taste
+            { "Why do you think Capstan sells more?": "Price" }, { "Why do you think Capstan sells more?": "Price" },
+            { "Why do you think Capstan sells more?": "Price" }, { "Why do you think Capstan sells more?": "Price" },
+            { "Why do you think Capstan sells more?": "Price" }, { "Why do you think Capstan sells more?": "Price" },
+            { "Why do you think Capstan sells more?": "Price" }, // 7 for Price
+            { "Why do you think Capstan sells more?": "Taste and Price" }, // 1 for Taste and Price
+            { "Why do you think Capstan sells more?": "Taste resonates with target audience" }, // 1 for Taste resonates with target audience
+            { "Why do you think Capstan sells more?": "Customer preferences" }, // 1 for Customer preferences
+            { "Why do you think Capstan sells more?": "Taste and Price" }, // Adjusted to match the 2 responses for 'Taste and Price' from the screenshot
+
+            // If Capstan ever goes out of stock (24 responses total from screenshot)
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Gold Leaf" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Gold Leaf" },
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Gold Leaf" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Gold Leaf" },
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Gold Leaf" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Gold Leaf" }, // 6 for Gold Leaf
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Dunhill" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Dunhill" },
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Dunhill" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Dunhill" },
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Dunhill" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Dunhill" },
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Dunhill" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Dunhill" },
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Dunhill" }, // 9 for Dunhill
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "JPGL" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "JPGL" },
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "JPGL" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "JPGL" }, // 4 for JPGL
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Customers dont buy anything" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Customers dont buy anything" },
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Customers dont buy anything" }, { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Customers dont buy anything" }, // 4 for Customers don't buy anything
+            { "If Capstan ever goes out of stock, which brand do customers ask for next?": "Any other brand" }, // 1 for Any other brand
+
+            // How often does BAT’s distributor visit your shop to deliver stock? (23 responses total from screenshot)
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" },
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" },
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" },
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" },
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" },
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" },
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" },
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" },
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" },
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Every 2-3 days" }, // 19 for Every 2-3 days (82.6%)
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Everyday" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Everyday" }, // 2 for Everyday (8.7%)
+            { "How often does BAT’s distributor visit your shop to deliver stock?": "Once a week" }, { "How often does BAT’s distributor visit your shop to deliver stock?": "Once a week" }, // 2 for Once a week (8.7%)
+
+            // How often do you restock Capstan compared to other brands? (23 responses total from screenshot)
+            { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" }, { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" },
+            { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" }, { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" },
+            { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" }, { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" },
+            { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" }, { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" },
+            { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" }, { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" },
+            { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" }, { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" },
+            { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" }, { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" },
+            { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" }, { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" },
+            { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" }, { "How often do you restock Capstan compared to other brands?": "Every 2-3 days" }, // 18 for Every 2-3 days (78.3%)
+            { "How often do you restock Capstan compared to other brands?": "Everyday" }, { "How often do you restock Capstan compared to other brands?": "Everyday" }, // 2 for Everyday (8.7%)
+            { "How often do you restock Capstan compared to other brands?": "Once a week" }, // 1 for Once a week (4.3%)
+            { "How often do you restock Capstan compared to other brands?": "Only when I call them" }, // 1 for Only when I call them (4.3%)
+            { "How often do you restock Capstan compared to other brands?": null } // 1 null entry to make total 23
+        ];
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Register the datalabels plugin globally
+            Chart.register(ChartDataLabels);
+
+            // Function to generate a pie chart
+            function createPieChart(ctx, title, data, labels, colors) {
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: data,
+                            backgroundColor: colors,
+                            borderColor: '#ffffff',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    color: 'var(--color-text-dark)'
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: title,
+                                color: 'var(--color-primary-dark)',
+                                font: {
+                                    size: 18
+                                }
+                            },
+                            datalabels: { // Datalabels plugin configuration
+                                color: '#fff', // White color for labels
+                                formatter: (value, context) => {
+                                    const sum = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                    const percentage = (value * 100 / sum).toFixed(1) + '%';
+                                    return percentage;
+                                },
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Function to generate a bar chart
+            function createBarChart(ctx, title, data, labels, color) {
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Number of Responses',
+                            data: data,
+                            backgroundColor: color,
+                            borderColor: color,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: title,
+                                color: 'var(--color-primary-dark)',
+                                font: {
+                                    size: 18
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: 'var(--color-text-dark)',
+                                    precision: 0
+                                },
+                                grid: {
+                                    color: 'var(--color-chart-grid)'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: 'var(--color-text-dark)',
+                                    autoSkip: false,
+                                    maxRotation: 45,
+                                    minRotation: 45
+                                },
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Define a palette of distinct colors for charts
+            const chartColorPalette = [
+                '#B22222', // Firebrick (Primary Light Red)
+                '#DAA520', // Goldenrod (Accent Gold)
+                '#8B0000', // Dark Red (Primary Dark Red)
+                '#CD5C5C', // IndianRed
+                '#A0522D', // Sienna
+                '#D2B48C', // Tan
+                '#F4A460', // SandyBrown
+                '#FF6347', // Tomato
+                '#FFD700', // Gold
+                '#DC143C', // Crimson
+                '#B8860B', // DarkGoldenrod
+                '#C71585'  // MediumVioletRed
+            ];
+
+            // Function to get a subset of colors from the palette
+            function getChartColors(numColors) {
+                const colors = [];
+                for (let i = 0; i < numColors; i++) {
+                    colors.push(chartColorPalette[i % chartColorPalette.length]);
+                }
+                return colors;
+            }
+
+
+            // --- Chart 1: Daily Capstan Pack Sales Distribution ---
+            const salesCounts = {
+                '<10': 0,
+                '10-20': 0,
+                '20-40': 0,
+                '>40': 0
+            };
+            surveyData.forEach(item => {
+                const salesRange = item["How many Capstan packs do you sell in a day (avg)?"];
+                if (salesRange && salesCounts.hasOwnProperty(salesRange)) {
+                    salesCounts[salesRange]++;
+                }
+            });
+            createBarChart(
+                document.getElementById('salesChart').getContext('2d'),
+                'Distribution of Daily Capstan Pack Sales by Shop',
+                Object.values(salesCounts),
+                Object.keys(salesCounts),
+                getChartColors(Object.keys(salesCounts).length) // Use dynamic colors
+            );
+
+            // --- Chart 2: Distributor Visit Frequency ---
+            const distributorVisitCounts = {};
+            surveyData.forEach(item => {
+                const frequency = item["How often does BAT’s distributor visit your shop to deliver stock?"];
+                if (frequency && frequency !== '-') {
+                    distributorVisitCounts[frequency] = (distributorVisitCounts[frequency] || 0) + 1;
+                }
+            });
+            const distributorLabels = Object.keys(distributorVisitCounts);
+            const distributorData = Object.values(distributorVisitCounts);
+            createPieChart(
+                document.getElementById('distributorVisitChart').getContext('2d'),
+                'How often does BAT’s distributor visit your shop?',
+                distributorData,
+                distributorLabels,
+                getChartColors(distributorLabels.length) // Use dynamic colors
+            );
+
+            // --- Chart 3: Capstan Restocking Frequency ---
+            const restockFrequencyCounts = {};
+            surveyData.forEach(item => {
+                const frequency = item["How often do you restock Capstan compared to other brands?"];
+                if (frequency && frequency !== '-') {
+                    restockFrequencyCounts[frequency] = (restockFrequencyCounts[frequency] || 0) + 1;
+                }
+            });
+            const restockLabels = Object.keys(restockFrequencyCounts);
+            const restockData = Object.values(restockFrequencyCounts);
+            createPieChart(
+                document.getElementById('restockFrequencyChart').getContext('2d'),
+                'How often do you restock Capstan?',
+                restockData,
+                restockLabels,
+                getChartColors(restockLabels.length) // Use dynamic colors
+            );
+
+            // --- Chart 4: Why Capstan Sells More (Bar Chart) ---
+            const whySellCounts = {};
+            surveyData.forEach(item => {
+                const reason = item["Why do you think Capstan sells more?"];
+                if (reason) {
+                    whySellCounts[reason] = (whySellCounts[reason] || 0) + 1;
+                }
+            });
+            createBarChart(
+                document.getElementById('whyCapstanSellsChart').getContext('2d'),
+                'Why Capstan Sells More Than Other Brands',
+                Object.values(whySellCounts),
+                Object.keys(whySellCounts),
+                getChartColors(Object.keys(whySellCounts).length) // Use dynamic colors
+            );
+
+            // --- Chart 5: Brand Substitution Patterns (Pie Chart) ---
+            const substitutionCounts = {};
+            surveyData.forEach(item => {
+                const brand = item["If Capstan ever goes out of stock, which brand do customers ask for next?"];
+                if (brand) {
+                    substitutionCounts[brand] = (substitutionCounts[brand] || 0) + 1;
+                }
+            });
+            const substitutionLabels = Object.keys(substitutionCounts);
+            const substitutionData = Object.values(substitutionCounts);
+            createPieChart(
+                document.getElementById('brandSubstitutionChart').getContext('2d'),
+                'Brand Substitution When Capstan is Out of Stock',
+                substitutionData,
+                substitutionLabels,
+                getChartColors(substitutionLabels.length) // Use dynamic colors
+            );
+        });
+    </script>
+</body>
+</html>
